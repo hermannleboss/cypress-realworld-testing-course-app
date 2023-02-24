@@ -14,7 +14,7 @@ describe("Newsletter Subscribe Form", () => {
     cy.getByData("submit-button").click()
     cy.getByData("success-message").should("not.exist")
   })
-  it.only("does NOT  allows users to subscribe 2 time into the email list", () => {
+  it("does NOT  allows users to subscribe 2 time into the email list", () => {
     cy.getByData("email-input").type("john@example.com")
     cy.getByData("submit-button").click()
     cy.getByData("server-error-message").should("exist").contains("Error: john@example.com already exists. Please use a different email address.")
