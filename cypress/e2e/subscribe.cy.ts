@@ -4,9 +4,15 @@ describe("Newsletter Subscribe Form", () => {
     cy.visit("http://localhost:3000")
   })
 
-  it.only("allows users to subscribe to the email list", () => {
+  it("allows users to subscribe to the email list", () => {
     cy.getByData("email-input").type("tom@aol.com")
     cy.getByData("submit-button").click()
     cy.getByData("success-message").should("exist").contains("tom@aol.com")
   })
+  it.only("does NOT allow an invalid email address", () => {
+    cy.getByData("email-input").type("tom")
+    cy.getByData("submit-button").click()
+    cy.getByData("success-message").should("not.exist")
+  })
+
 })
