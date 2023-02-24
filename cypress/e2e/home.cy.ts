@@ -9,7 +9,7 @@ describe("home page", () => {
         "Testing Next.js Applications with Cypress"
     )
   })
-  it.only("the features on the homepage are correct", () => {
+  it("the features on the homepage are correct", () => {
     cy.get("dt").eq(0).contains("4 Courses")
     cy.get("dt").eq(1).contains("25+ Lessons")
     cy.get("dt").eq(2).contains("Free and Open Source")
